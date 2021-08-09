@@ -7,4 +7,4 @@ WORKDIR /app
 COPY src /app
 
 EXPOSE 8080
-CMD [ "python", "server.py" ]
+CMD [ "python", "web_server.py" ]

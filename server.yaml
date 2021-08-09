@@ -1,0 +1,38 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-server
+spec:
+  selector:
+    app: web-server
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 31500
+  type: NodePort
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: web-server
+spec:
+  selector:
+    matchLabels:
+      app: web-server
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: web-server
+    spec:
+      containers:
+        - name: web-server
+          image: asia.gcr.io/coding-dojo-cohort-1/basic-web-server:v1    
+          resources:
+            requests:
+              cpu: 50m    
+          # envFrom:
+          #   - secretRef:
+          #       name: env-secret
