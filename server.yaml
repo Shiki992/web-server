@@ -10,7 +10,7 @@ spec:
     - port: 80
       targetPort: 8080
       nodePort: 31500
-  type: NodePort
+  type: LoadBalancer
 
 ---
 kind: Deployment
@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: web-server
-          image: asia.gcr.io/coding-dojo-cohort-1/basic-web-server:v1    
+          image: asia.gcr.io/coding-dojo-cohort-1/basic-web-server:v2    
           resources:
             requests:
               cpu: 50m    

@@ -6,5 +6,5 @@ WORKDIR /app
 # Bundle app source
 COPY src /app
 
-EXPOSE 8080
+EXPOSE 80
 CMD [ "python", "web_server.py" ]
