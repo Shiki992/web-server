@@ -2,7 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 
 hostName = "localhost"
-serverPort = 8080
+serverPort = 80
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -17,7 +17,7 @@ class MyServer(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":        
     webServer = HTTPServer((hostName, serverPort), MyServer)
-    print("Server started http://%s:%s" % (hostName, serverPort))
+    print("Server started now http://%s:%s" % (hostName, serverPort))
 
     try:
         webServer.serve_forever()
